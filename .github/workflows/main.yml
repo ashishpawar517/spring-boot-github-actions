@@ -26,12 +26,13 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Run the Spring Servier
+        run: ./gradlew bootRun
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo running gradle tests
-          ./gradlew bootRun
-          ./gradlew cleanTest test --tests SpringAppTestApplicationTests
+      - name: Run the Spring Tests
+        run: ./gradlew cleanTest test --tests SpringAppTestApplicationTests
+
+        # Runs a set of commands using the runners shell
+#      - name: Run a multi-line script
+#        run: |
+#          ./gradlew cleanTest test --tests SpringAppTestApplicationTests

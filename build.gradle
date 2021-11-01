@@ -38,6 +38,9 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+	testLogging {
+		events "PASSED", "SKIPPED", "FAILED"
+	}
 }
 //for github actions workflow
 tasks.register("runOnGitHub") { // 1

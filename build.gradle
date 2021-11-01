@@ -39,3 +39,9 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+//for github actions workflow
+tasks.register("runOnGitHub") { // 1
+	dependsOn(":testClasses")  // 2 ==> CUSTOMIZE THIS LINE
+	group = "custom"      // 3
+	description = "./gradlew runOnGitHub # runs on GitHub Action" //3
+}

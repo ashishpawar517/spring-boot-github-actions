@@ -12,6 +12,10 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
 }
 
 repositories {
@@ -47,4 +51,20 @@ tasks.register("runOnGitHub") { // 1
 	dependsOn(":testClasses")  // 2 ==> CUSTOMIZE THIS LINE
 	group = "custom"      // 3
 	description = "./gradlew runOnGitHub # runs on GitHub Action" //3
+}
+// spring dev tools live reload
+task reload(type: Copy) {
+	from 'src/main/resources'
+	into 'build/resources/main'
+	include 'static/**'
+	include 'templates/**'
+	include 'custom/**'
+}
+
+task reloadModule(type: Copy){
+	from '../module/src/main/resources'
+	into 'build/resources/main'
+	include 'static/**'
+	include 'templates/**'
+	include 'custom/**'
 }

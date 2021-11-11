@@ -47,7 +47,7 @@ public class StudentApi {
     @Operation(summary = "Dummy API", description = "return Hello World")
     @GetMapping("/greet")
     public ResponseEntity<?> greet() {
-        return new ResponseEntity<>("hello world x3", HttpStatus.OK);
+        return new ResponseEntity<>("hello world", HttpStatus.OK);
     }
 
     @Operation(summary = "Add a new Student", description = "", tags = { "Student" })
